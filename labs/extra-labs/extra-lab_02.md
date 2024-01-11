@@ -101,7 +101,7 @@ For the next steps you can use this page as reference : https://jinja.palletspro
 
 2) Find the number of entry in the oscarng_versions using the appropriate jinja filter ( length )
    
-3) Sort the list by major version desc then minor version desc the appropriate jinja filter ( sort with an attribute )
+3) Sort the list by major version desc using the appropriate jinja filter ( sort with an attribute )
    
 4) Find the item in the list with version 7.5.3.14 using the appropriate jinja filter ( select )
 
