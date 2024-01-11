@@ -84,25 +84,28 @@ oscarng_versions:
           version: 7.7.0.0
         - name: OscarNGReports 
           group: OscarNG 
-          version: 7.0.1.0 
+          version: 7.1.1.1 
         - name: OscarNGReportUtil 
           group: OscarNG 
           version: 1.0.0.37 
       custom_tasks:
         before:
           - uninstall_telerik
+          - configuration_item
           - cms_check
         after:
           - cms_check
 ```
 
-2) Find the number of entry in the oscarng_versions using the appropriate jinja filter
+For the next steps you can use this page as reference : https://jinja.palletsprojects.com/en/3.0.x/templates/#list-of-builtin-filters
+
+2) Find the number of entry in the oscarng_versions using the appropriate jinja filter ( length )
    
-3) Sort the list by major version desc then minor version desc the appropriate jinja filter
+3) Sort the list by major version desc then minor version desc the appropriate jinja filter ( sort with an attribute )
    
-4) Find custom tasks before for 7.5.3.14 version using the appropriate jinja filter
-   
-5) Create a task to loop through the oscarng_version list and display the author Michelin ID for each the appropriate jinja filter
+4) Find the item in the list with version 7.5.3.14 using the appropriate jinja filter ( select )
+
+5) Get only the custom_task for oscarng version 7.7.0.0 using the appropriate jinja filter ( select then map )
 
 ### Custom module implemntation
 
@@ -165,4 +168,4 @@ Exit-Json -obj $result
 
 This script is custom made and is for creating, removing and modifying a file.
 
-3) Try to run the script into your own project (you have to change a bit ansible.cfg)
+3) Call the script in a playbook or role as you would with any other built-in modules
