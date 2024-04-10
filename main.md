@@ -62,7 +62,7 @@ Presented by Maël Dennery ([@maeldennery](https://github.com/Mamouchan))
   - HTTP : 5985
   - HTTPS : 5986 (SSL certificats required)
 - SSH default port is 22
-- 🛈 The python module **`pywinrm`** is required by Ansibe for Windows support.
+- 🛈 The python module **`pywinrm`** is required by ansible for Windows support.
 
 ---
 

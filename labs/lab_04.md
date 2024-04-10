@@ -1,6 +1,6 @@
 # Let's play ansible and ansible windows modules
 
-## Create your first ansibe role
+## Create your first ansible role
 
 1) At the root of your ansible project, create a new role named `my-first-role`, using the cli `ansible-galaxy`
 
