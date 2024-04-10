@@ -156,3 +156,30 @@ You can also run any command on the remote host using the module `raw`:
 ```bash
 ansible --vault-password-file=.vault_pass all -i inventories/dev -m raw -a "dir"
 ```
+
+Create an ansible config file `ansible.cfg` at project root directory
+
+```plain
+[defaults]
+host_key_checking = false
+roles_path = ./roles
+inventory = ./inventories
+retry_files_enabled = false
+remote_user = ansible
+ask_vault_pass = false
+deprecation_warnings = false
+vault_password_file = ./.vault_pass
+ 
+[inventory]
+enable_plugins = host_list, ini, script, yaml, auto
+ 
+[privilege_escalation]
+become_user = root
+become_method = sudo
+ 
+[ssh_connection]
+pipelining = true
+ssh_args = -o ControlMaster=no -o TCPKeepAlive=yes
+```
+
+`vault_password_file = ./.vault_pass` will allow oyu to remove `--vault-password-file=.vault_pass` from all your commands in the future.
