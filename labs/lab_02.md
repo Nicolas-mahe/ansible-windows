@@ -11,8 +11,8 @@
 
 2) Enable Winrm on the VM: Files to download on the VM
 
-- https://raw.githubusercontent.com/hocinehacherouf/ansible-windows/main/labs/tools/winrm/ConfigureWinRM.ps1
-- https://raw.githubusercontent.com/hocinehacherouf/ansible-windows/main/labs/tools/winrm/makecert.exe
+- https://raw.githubusercontent.com/Mamouchan/ansible-windows/tree/main/labs/tools/winrm/ConfigureWinRM.ps1
+- https://raw.githubusercontent.com/Mamouchan/ansible-windows/tree/main/labs/tools/winrm/makecert.exe
 
 3) Run the script `ConfigureWinRM.ps1` on the VM: Open a CMD terminal with admin rights and run the following command:
 

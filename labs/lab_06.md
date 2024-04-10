@@ -161,7 +161,7 @@ verifier:
         publisher: Microsoft.Compute
         virtual_machine_extension_type: CustomScriptExtension
         type_handler_version: '1.9'
-        settings: '{"fileUris": ["https://raw.githubusercontent.com/hocinehacherouf/ansible-windows/main/labs/tools/winrm/ConfigureWinRM.ps1", "https://raw.githubusercontent.com/hocinehacherouf/ansible-windows/main/labs/tools/winrm/makecert.exe"],"commandToExecute": "powershell -ExecutionPolicy Unrestricted -File ConfigureWinRM.ps1"}'
+        settings: '{"fileUris": ["https://raw.githubusercontent.com/mamouchan/ansible-windows/main/labs/tools/winrm/ConfigureWinRM.ps1", "https://raw.githubusercontent.com/mamouchan/ansible-windows/main/labs/tools/winrm/makecert.exe"],"commandToExecute": "powershell -ExecutionPolicy Unrestricted -File ConfigureWinRM.ps1"}'
         auto_upgrade_minor_version: true
 
     - name: Get facts for one private ip

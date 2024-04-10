@@ -1,6 +1,6 @@
 # Configure Dev environment
 
-## Requiements
+## Requirements
 
 - Dedicated Azure resource group
 - WSL2
