@@ -11,6 +11,7 @@ backgroundImage: url('https://marp.app/assets/hero-background.svg')
 # <!--fit--> Ansible for Windows
 
 Created by Hocine Hacherouf ([@hocinehacherouf](https://github.com/hocinehacherouf))
+Presented by Maël Dennery ([@maeldennery](https://github.com/Mamouchan))
 
 ---
 
@@ -37,7 +38,7 @@ Created by Hocine Hacherouf ([@hocinehacherouf](https://github.com/hocinehachero
 - Created in 2012 and acquired by Red Hat in 2015
 - Tool for machine provisioning, configuration and deployment
 - Agentless
-- Idempotence stateless
+- Idempotence, stateless
 
 ---
 
@@ -47,7 +48,7 @@ Created by Hocine Hacherouf ([@hocinehacherouf](https://github.com/hocinehachero
 
 ### Ansible Communication Protocoles
 
-- Ansible + Linux 👉 SSH
+- Ansible + Linux (or Mac) 👉 SSH
 - Ansible + Windows 👉
   - WinRM: **Win**dows **R**emote **M**anagement
   - SSH (:warning: Experimental)
@@ -60,7 +61,8 @@ Created by Hocine Hacherouf ([@hocinehacherouf](https://github.com/hocinehachero
 - WinRM default ports
   - HTTP : 5985
   - HTTPS : 5986 (SSL certificats required)
-- :information_source: The python module **`pywinrm`** is required by Ansibe for Windows support.
+- SSH default port is 22
+- 🛈 The python module **`pywinrm`** is required by ansible for Windows support.
 
 ---
 
@@ -94,7 +96,7 @@ Created by Hocine Hacherouf ([@hocinehacherouf](https://github.com/hocinehachero
 - Support local and domain users
 - More secure than Basic
 
-:information_source: We will use **NTLM** on our labs
+🛈 We will use **NTLM** on our labs
 
 ---
 
@@ -132,13 +134,13 @@ Created by Hocine Hacherouf ([@hocinehacherouf](https://github.com/hocinehachero
 
 ## Ansible Installation
 
-:test_tube: Lab 01
+🧪 Lab 01
 
 ---
 
 ## Configure testing environement
 
-:test_tube: Lab 02
+🧪 Lab 02
 
 ---
 
@@ -148,8 +150,8 @@ Created by Hocine Hacherouf ([@hocinehacherouf](https://github.com/hocinehachero
 
 ### Ansible Configuration
 
-- Ansbile comes with a default configuration `/etc/ansible/ansible.cfg`.
-- This configuration can be overriden with the follwing precedence:
+- Ansible comes with a default configuration `/etc/ansible/ansible.cfg`.
+- This configuration can be overriden with the following precedence:
   - The env variable: `ANSIBLE_CONFIG`
   - The file `ansible.cfg` on your current directory where ansible is executed
   - User home directory: `~/.ansible/ansible.cfg`
@@ -201,22 +203,36 @@ frontend01
 
 ---
 
+### Variables
+
+- We can declare variables in an Ansible project
+- No need to specify the variable type (int, string, etc ...)
+- You can call a variable inside another one (put it between {{ }})
+
+```yml
+my_variable_name: "my_variable_value"
+my_second_variable_name: "my_second_variable_value {{ my_variable_name }}"
+# ansible will interpret anything inside {{ }}
+```
+
+---
+
 ### Secret Management with Ansible Vault
 
-- To deal with sensitive data such as passwords, tokens, certificats..., we have to use the cli `ansbile-vault` to encrypt them.
-- The enrypted data can be distributed or placed in `source control`.
+- To deal with sensitive data such as passwords, tokens, certificats..., we have to use the cli `Ansible-vault` to encrypt them.
+- The enrypted data can be distributed or placed in `source control` (gitlab, tfs, ...).
 
 ---
 
 ## Let's create an Ansible inventory with secrets
 
-:test_tube: Lab 03
+🧪 Lab 03
 
 ---
 
 ### Playbook
 
-- An ansible playbook is a yaml file that triggers the actions to be performed by ansbile on an inventory 👉 Orchestrate
+- An ansible playbook is a yaml file that triggers the actions to be performed by Ansible on an inventory 👉 Orchestrate
 
 ```yml
 ---
@@ -298,7 +314,7 @@ Live DEMO
 
 ## Let's play with Ansible
 
-:test_tube: Lab 04
+🧪 Lab 04
 
 ---
 
@@ -352,7 +368,7 @@ roles:
 
 collections:
   # Install a role from Ansible Galaxy.
-  - name: azure.azcollection
+  - name: install azure.azcollection
     version: ">=1.14.0" # usage of ranges
   # Install a role from Ansible Galaxy.
   - name: awx.awx
@@ -368,7 +384,7 @@ collections:
 
 ## Let's play with Ansible Collections
 
-:test_tube: Lab 05
+🧪 Lab 05
 
 ---
 
@@ -419,8 +435,8 @@ If you have a large playbook, it may be useful to run/skip only specific parts o
 ```
 
 ```bash
-ansbile-playbook deploy.yml --tags "patching"
-ansbile-playbook deploy.yml --skip-tags "patching"
+Ansible-playbook deploy.yml --tags "patching"
+Ansible-playbook deploy.yml --skip-tags "patching"
 ```
 
 ---
@@ -457,7 +473,7 @@ ansbile-playbook deploy.yml --skip-tags "patching"
 
 ## Let's play with Molecule
 
-:test_tube: Lab 06
+🧪 Lab 06
 
 ---
 
@@ -482,4 +498,4 @@ Live Demo
 
 ---
 
-## :ok_hand: Thanks
+## 👌 Thanks
