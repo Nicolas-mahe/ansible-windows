@@ -10,7 +10,8 @@ backgroundImage: url('https://marp.app/assets/hero-background.svg')
 
 # <!--fit--> Ansible for Windows
 
-Created by Maël Dennery ([@maeldennery](https://github.com/Mamouchan))
+By Maël Dennery ([@maeldennery](https://github.com/Mamouchan))
+And Nicolas Mahé
 
 ---
 

@@ -12,6 +12,7 @@ backgroundImage: url('https://marp.app/assets/hero-background.svg')
 
 Created by Hocine Hacherouf ([@hocinehacherouf](https://github.com/hocinehacherouf))
 Presented by Maël Dennery ([@maeldennery](https://github.com/Mamouchan))
+And Nicolas Mahé.
 
 ---
 
