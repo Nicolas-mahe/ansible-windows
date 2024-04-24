@@ -13,4 +13,4 @@ Try to search on your own, don't hesitate to ask to your trainer for help.
 
 5) Link it to AWX and try to schedule the snapshot playbook above to run every day at midnight.
 
-6) Setup notifications in AWX so it nodifies user by a mail when success or failure.
+6) Setup notifications in AWX so it notifies selected users by a mail when success or failure.
