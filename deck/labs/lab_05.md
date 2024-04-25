@@ -49,10 +49,12 @@ When IIS is installed, open the ip of your VM: You will see the defaut page of I
 
 3) Add a task to copy the `default_index.html` to the remote directory `C:\\inetpub\\wwwroot\\index.html`
 
+Website do need a file named `index.html` to work properly.
+
 ```yml
 - name: "Change default website index.html"
   ansible.builtin.win_copy:
-    src: index.html
+    src: default_index.html
     dest: "C:\\inetpub\\wwwroot\\index.html"
 ```
 

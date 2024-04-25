@@ -108,14 +108,14 @@ Let's encrypt the password of the remote user with `ansible-vault`, using the va
 ansible-vault encrypt_string --vault-password-file .vault_pass 'replace by the password of the user ansible'
 ```
 
-The output of the command contains the encrypted value of the password. Repalce the value of the variable `ansible_password` (in the file `inventories/dev/group_vars/azure_vm.yml`) by the encypted value.
+The output of the command contains the encrypted value of the password. Repalce the value of the variable `ansible_password` (in the file `inventories/dev/host_vars/azure_vm.yml`) by the encypted value.
 
-The file `inventories/dev/group_vars/azure_vm.yml` should be similar to:
+The file `inventories/dev/host_vars/azure_vm.yml` should be similar to:
 
 ```yml
 ansible_host: "ip of the vm created in lab 02"
 ansible_port : 22
-ansible_user: ansible
+ansible_user: "username of the administrator of the vm created in lab 02"
 ansible_password: !vault |
           $ANSIBLE_VAULT;1.1;AES256
           61383263656531396135323537636239626664626465333063326431396163306162666664616139

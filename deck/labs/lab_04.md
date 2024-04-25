@@ -87,7 +87,7 @@ ansible-playbook --vault-password-file=.vault_pass deploy.yml -i inventories/dev
 
 - Create a directory with path `C:\Temp\MyApp`
 - Create a file with path `C:\Temp\MyApp\Service1.config`
-- Download the image from `https://upload.wikimedia.org/wikipedia/commons/a/a8/NASA-Apollo8-Dec24-Earthrise.jpg` and store it to the path `C:\Temp\MyApp\earthrise.jpg`
+- Download the image from `https://upload.wikimedia.org/wikipedia/commons/a/a8/NASA-Apollo8-Dec24-Earthrise.jpg` and store it to the path `C:\Temp\MyApp\earthrise.jpg` (due to lack of internet on the distant host, you'll have to use delegate_to)
 - Find files in the path `C:\Temp\MyApp` and where extension is `.config`
 - Delete file with path `C:\Temp\MyApp\Service1.config`
 - Delete the directory with path `C:\Temp\MyApp`

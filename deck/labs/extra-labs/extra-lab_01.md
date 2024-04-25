@@ -19,17 +19,17 @@ users:
 ```yml
 users:
   - name: mytempuser01
-    password: Mytemppassword01
+    password: Mytemppassword01+
     groups:
       - users
       - administrators
   - name: mytempuser02
-    password: Mytemppassword02
+    password: Mytemppassword02+
     groups:
       - users
       - administrators
   - name: mytempuser03
-    password: Mytemppassword03
+    password: Mytemppassword03+
     groups:
       - users
       - administrators
