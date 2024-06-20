@@ -12,11 +12,11 @@ We will change the handlers created in lab05 and adapt it to run it locally inst
     body_format: json
     body:
       type: AdaptiveCard
-      text: "{{ ansible_date_time.date }}: index.html has been updated on {{ ansible_host }}"
+      text: "{{ ansible_date_time.date }}: index.html has been updated on {{ ansible_host }} by {{ ansible_winrm_user }}"
   delegate_to: localhost
   vars:
     ansible_connection: local
-    ansible_shell_type: /bin/sh
+    ansible_shell_type: sh
 ```
 
 This changes the module and some parameters to adapt to a Linux environment
