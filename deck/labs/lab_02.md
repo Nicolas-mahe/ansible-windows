@@ -9,10 +9,10 @@
 
 1) Go to https://portal.azure.com and follow the trainer's instructions to create a new Windows VM
 
-2) Enable Winrm on the VM: Files to download on the VM
+2) Enable Winrm on the VM: Files to download and copy on the VM
 
-- https://raw.githubusercontent.com/Mamouchan/ansible-windows/main/labs/tools/winrm/ConfigureWinRM.ps1
-- https://raw.githubusercontent.com/Mamouchan/ansible-windows/main/labs/tools/winrm/makecert.exe
+- https://github.com/Nicolas-mahe/ansible-windows/blob/dev/deck/labs/tools/winrm/ConfigureWinRM.ps1
+- https://github.com/Nicolas-mahe/ansible-windows/blob/dev/deck/labs/tools/winrm/makecert.exe
 
 3) Run the script `ConfigureWinRM.ps1` on the VM: Open a CMD terminal with admin rights and run the following command:
 

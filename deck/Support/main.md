@@ -11,8 +11,7 @@ backgroundImage: url('https://marp.app/assets/hero-background.svg')
 # <!--fit--> Ansible for Windows
 
 Created by Hocine Hacherouf ([@hocinehacherouf](https://github.com/hocinehacherouf))
-Presented by Maël Dennery ([@maeldennery](https://github.com/Mamouchan))
-And Nicolas Mahé.
+Presented by Nicolas Mahé([@nicolas-mahe](https://github.com/nicolas-mahe))
 
 ---
 
@@ -20,8 +19,7 @@ And Nicolas Mahé.
 
 - Ansible Concepts
 - Development with Ansible
-- Best Practices
-- Testing with Molecule 
+- Best Practices 
 - Automation with AWX and CI
 
 ---
@@ -307,10 +305,6 @@ See 👉 [Understanding variable precedence](https://docs.ansible.com/ansible/la
 
 ![bg right 60%](https://upload.wikimedia.org/wikipedia/commons/thumb/8/87/Jinja_software_logo.svg/langfr-1920px-Jinja_software_logo.svg.png)
 
-### Jinja2
-
-Live DEMO
-
 ---
 
 ## Let's play with Ansible
@@ -456,27 +450,6 @@ Ansible-playbook deploy.yml --skip-tags "patching"
 
 ![bg right 60%](https://repository-images.githubusercontent.com/216770803/aa9e2d00-f4bd-11e9-9149-3765c7f2d2a2)
 
-### Testing roles with Molecule
-
----
-
-- [Molecule](https://molecule.readthedocs.io/) is a wrapper for ansible that allows to tests and lint ansible roles.
-- Tests are done by Molecule on disposable environements using drivers (supported by ansible): docker, vagrant...
-- The usage of molecule is not only for local testing, it can/must be used on continuous integration pipelines.
-
----
-
-### Molecule Live Demo
-
-![bg right 60%](https://repository-images.githubusercontent.com/216770803/aa9e2d00-f4bd-11e9-9149-3765c7f2d2a2)
-
----
-
-## Let's play with Molecule
-
-🧪 Lab 06
-
----
 
 ![bg right 90%](https://raw.githubusercontent.com/ansible/awx-logos/master/awx/ui/client/assets/logo-login.svg)
 

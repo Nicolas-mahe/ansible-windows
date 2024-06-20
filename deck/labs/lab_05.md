@@ -27,7 +27,7 @@
 ansible-playbook --vault-password-file=.vault_pass deploy.yml -i inventories/dev -vvv
 ```
 
-When IIS is installed, open the ip of your VM: You will see the defaut page of IIS.
+When IIS is installed, open the ip of your VM in your browser: You will see the defaut page of IIS.
 
 ## Change index.html of the default IIS application
 
@@ -72,19 +72,19 @@ ansible-playbook --vault-password-file=.vault_pass deploy.yml -i inventories/dev
 
 1) Install the collection `community.windows` if it doesn't exist:
 
-First run:
+First run to check if exist:
 
 ```bash
 ansible-galaxy collection list | grep -i community.windows
 ```
 
-If the collection `community.windows` is not installed, run:
+If the collection `community.windows` is not in this list, run:
 
 ```bash
 ansible-galaxy collection install community.windows
 ```
 
-2) Add task to create the folder `c:\\inetpub\\wwwroot\\lab05`
+2) Add task to create the folder `C:\\inetpub\\wwwroot\\lab05`
 
 3) Add an html file on the folder files of the role `lab05`, named `lab05_index.html` with content:
 
@@ -111,7 +111,7 @@ ansible-galaxy collection install community.windows
 - Named `lab05iissite`
 - Linked to the pool `lab05iispool`
 - Listing to the port 8080
-- physical_path must be `c:\\inetpub\\wwwroot\\lab05`
+- physical_path must be `C:\\inetpub\\wwwroot\\lab05`
 
 8) Add a new task that calls the module `community.windows.win_firewall_rule` to allow the port 8080
 
@@ -135,11 +135,11 @@ Example:
 
 ## Deploy dynamic html file using jinja
 
-Same excercie as previously, but this time we will use a jinja template. Here we want to inject the value of a variable in the output index.html
+Same excercice as previously, but this time we will use a jinja template. Here we want to inject the value of a variable in the output index.html
 
 1) Delete the file `lab05_index.html` from files folder.
 
-2) Add a new variable named `welcome_message` with value `World` (in defaults folder)
+2) Add a new variable named `welcome_message` with value `World` (in defaults folder of your role)
 
 3) Add a file named `lab05_index.html.j2` under the folder templates and with content:
 
@@ -252,42 +252,35 @@ Example:
 
 3) Run your playbook and open the url http://<VM_IP>:8080 on your browser: You will see the list of services on your VM.
 
-4) Update the code of the task that sets fact on the variable `my_local_services` to keep only the services that are running, using the filter `selectattr`:
+4) Update the code of the task that sets fact on the variable `my_local_services` to `running_services` to keep only the services that are running, using the filter `selectattr`:
 
 ```yml
 - name: Set fact on running services
   ansible.builtin.set_fact:
-    my_local_services: "{{ service_info.services | selectattr('state', 'equalto', 'started') | list }}"
+    running_services: "{{ service_info.services | selectattr('state', 'equalto', 'started') | list }}"
 ```
 
 5) Run your playbook and open the url http://<VM_IP>:8080 on your browser: You will see the list of services on your VM.
 
 ### Handlers
 
-1) Generate a Teams webhook url using the [Teams connector](https://docs.microsoft.com/en-us/microsoftteams/platform/webhooks-and-connectors/how-to/add-incoming-webhook)
+1) Recover the generate Teams webhook url using from the former
 
 2) On defaults/main.yml, add a variable named `teams_webhook_url` with the value of the webhook url generated in the previous step.
 
 3) On the folder handlers in the role `lab05`, add a handler send an http event to a teams webhook to notify an update on the html file `lab05_index.html.j2`:
-
-```yml
-- name: "Send Teams notification"
-  ansible.windows.win_uri:
-    url: "{{ teams_webhook_url }}"
-    method: POST
-    body:
-      type: AdaptiveCard
-      text: "{{ ansible_date_time.date }}: index.html has been updated on {{ ansible_host }}"
-```
+See [extra-lab_03.md](https://github.com/Nicolas-mahe/ansible-windows/blob/main/deck/labs/extra-labs/extra-lab_03.md)
 
 4) On the task that copy the template `lab05_index.html.j2`, add the `notify` instruction to trigger the handler `Send Teams notification` when a change is detected:
 
+```yml
+  notify: "Send Teams notification"
+```
 ```yml
 - name: Copy index lab05
   ansible.windows.win_template:
     src: lab05_index.html.j2
     dest: c:\\inetpub\\wwwroot\\lab05\\index.html
-  notify: "Send Teams notification"
 ```
 
 5) On the task `Set fact on running services`, update the filter to sort the list of windows services randomly, using the filter `shuffle`:

@@ -10,8 +10,7 @@ backgroundImage: url('https://marp.app/assets/hero-background.svg')
 
 # <!--fit--> Ansible for Windows
 
-By Maël Dennery ([@maeldennery](https://github.com/Mamouchan))
-And Nicolas Mahé
+By Nicolas Mahé([@nicolas-mahe](https://github.com/nicolas-mahe))
 
 ---
 
@@ -47,14 +46,14 @@ remote_user = ansible
 ask_vault_pass = false
 deprecation_warnings = false
 library = ./library/modules
-vault_password_file = ./.vault
+vault_password_file = ./.vault_pass
 
 [inventory]
 enable_plugins = host_list, ini, script, yaml, auto
 
 [privilege_escalation]
-become_user = root
-become_method = sudo
+become_user = Administrator
+become_method = runas
 
 [ssh_connection]
 pipelining = true
@@ -287,6 +286,12 @@ files:
   loop_control:
     loop_var: file_name
 ```
+
+---
+
+### Handlers
+
+[Teams connector](https://docs.microsoft.com/en-us/microsoftteams/platform/webhooks-and-connectors/how-to/add-incoming-webhook)
 
 ---
 

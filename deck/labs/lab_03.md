@@ -108,7 +108,7 @@ Let's encrypt the password of the remote user with `ansible-vault`, using the va
 ansible-vault encrypt_string --vault-password-file .vault_pass 'replace by the password of the user ansible'
 ```
 
-The output of the command contains the encrypted value of the password. Repalce the value of the variable `ansible_password` (in the file `inventories/dev/host_vars/azure_vm.yml`) by the encypted value.
+The output of the command contains the encrypted value of the password. Replace the value of the variable `ansible_password` (in the file `inventories/dev/host_vars/azure_vm.yml`) by the encypted value.
 
 The file `inventories/dev/host_vars/azure_vm.yml` should be similar to:
 
@@ -127,9 +127,9 @@ ansible_password: !vault |
 
 ## Ad-hoc commands
 
-Now let test if our inventory works by running a ping to the windows vm.
+Now let test if our inventory works by running a ping to the Windows VM.
 
-The command below will execute the module [win_ping](https://docs.ansible.com/ansible/latest/collections/ansible/windows/win_ping_module.html) to check the connectivity of our windows vm:
+The command below will execute the module [win_ping](https://docs.ansible.com/ansible/latest/collections/ansible/windows/win_ping_module.html) to check the connectivity of our Windows VM:
 
 ```bash
 ansible --vault-password-file=.vault_pass all -i inventories/dev -m win_ping

@@ -32,7 +32,7 @@ ansible-playbook --vault-password-file=.vault_pass deploy.yml -i inventories/dev
 
 ## Create your first task
 
-1) Create a task in the role `my-first-role` that runs a basic powershell command using the module `win_powershell`:
+1) Create a task in the role `my-first-role` that run a basic powershell command using the module `win_powershell`:
 
 ```yml
 - name: Run basic PowerShell script
@@ -41,9 +41,9 @@ ansible-playbook --vault-password-file=.vault_pass deploy.yml -i inventories/dev
       echo "Hello World"
 ```
 
-2) Run your playbook
+2) Run your playbook, you don't saw the output of the command
 
-3) Update your task by adding the instruction register to store the output of the powershell command in a new variable `pwsh_output`. And add another task to print the value of the variable `pwsh_output`:
+3) To see it: pdate your task by adding the instruction register to store the output of the powershell command in a new variable `pwsh_output`. And add another task to print the value of the variable `pwsh_output`:
 
 ```yml
 - name: Run basic PowerShell script
@@ -57,7 +57,7 @@ ansible-playbook --vault-password-file=.vault_pass deploy.yml -i inventories/dev
     var: pwsh_output
 ```
 
-4) Run your playbook
+4) Run your playbook, now you can see the output of your command
 
 5) Add a task to print the first element the list output inluded in the variable `pwsh_output`
 
@@ -81,14 +81,14 @@ ansible-playbook --vault-password-file=.vault_pass deploy.yml -i inventories/dev
 
 1) At the root of your ansible project, create a new role named `my-second-role`, using the cli `ansible-galaxy`
 
-2) Include the role `my-second-role` in the playbook file `deploy.yml`. Comment the reference to the role `my-first-role`
+2) Include the role `my-second-role` in the playbook file `deploy.yml`( you can comment/remove previous roles defined in this playbook)
 
 3) Go to the documentation of the modules of [ansible.windows](https://docs.ansible.com/ansible/latest/collections/ansible/windows) and for each exercise below, propose a task that meets the need:
 
 - Create a directory with path `C:\Temp\MyApp`
 - Create a file with path `C:\Temp\MyApp\Service1.config`
 - Download the image from `https://upload.wikimedia.org/wikipedia/commons/a/a8/NASA-Apollo8-Dec24-Earthrise.jpg` and store it to the path `C:\Temp\MyApp\earthrise.jpg` (due to lack of internet on the distant host, you'll have to use delegate_to)
-- Find files in the path `C:\Temp\MyApp` and where extension is `.config`
+- Find files in the path `C:\Temp\MyApp` and where extension is `.config` and print it
 - Delete file with path `C:\Temp\MyApp\Service1.config`
 - Delete the directory with path `C:\Temp\MyApp`
 - Create a group `MyGroup`
